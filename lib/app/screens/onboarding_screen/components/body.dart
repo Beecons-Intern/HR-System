@@ -3,6 +3,8 @@ import 'package:flutter_application_1/app/route/route_name.dart';
 import 'package:flutter_application_1/app/utilities/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'build_content.dart';
+
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
