@@ -1,0 +1,132 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
+
+import '../utilities/colors.dart';
+
+class SuccesOver extends StatefulWidget {
+  const SuccesOver({Key? key, required this.timeTo, required this.timeFrom})
+      : super(key: key);
+  final DateTime timeTo;
+  final DateTime timeFrom;
+
+  @override
+  State<SuccesOver> createState() => _SuccesOverState();
+}
+
+class _SuccesOverState extends State<SuccesOver> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return SizedBox(
+      height: size.height * 0.5,
+      width: size.width * 0.3,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 6),
+            child: Text(
+              'Succesfull',
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: size.width * 0.5,
+            height: size.height * 0.18,
+            child: Lottie.asset('assets/succes.json'),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 10, left: 10, top: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Dani Kurniawati',
+                      style:
+                          TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      'UI/UX Designer',
+                      style: TextStyle(fontSize: 12),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 10,
+              top: 20,
+              right: 20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'From',
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      widget.timeFrom != null
+                          ? DateFormat.jm().format(widget.timeFrom)
+                          : "-",
+                      style: const TextStyle(color: neutral400, fontSize: 11),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'To',
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      widget.timeTo != null
+                          ? DateFormat.jm().format(widget.timeTo)
+                          : "-",
+                      style: const TextStyle(color: neutral400, fontSize: 11),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          GestureDetector(
+            onTap: () {}, //ini nanti pindah ke menu awal lagi
+            child: Container(
+              margin: const EdgeInsets.only(top: 40),
+              width: size.width,
+              height: size.height * 0.055,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: primary300,
+              ),
+              child: const Center(
+                child: Text(
+                  'Done',
+                  style:
+                      TextStyle(color: neutral800, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
